@@ -21,8 +21,10 @@ export function SolanaWallet({ mnemonic }) {
   };
 
   return (
-    <div>
-        <Toaster/>
+    <div className="w-full">
+     <div className="flex justify-center">
+     <div className="">
+     <Toaster/>
       <a
         onClick={async function () {
           const seed = await mnemonicToSeed(mnemonic);
@@ -39,7 +41,7 @@ export function SolanaWallet({ mnemonic }) {
          
         }}
         href="#_"
-        class="box-border relative z-30 inline-flex items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none"
+        class="box-border relative z-30 mt-5 inline-flex items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none"
       >
         <span class="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
         <span class="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
@@ -63,25 +65,30 @@ export function SolanaWallet({ mnemonic }) {
       </a>
 
       {publicKeys.map((p) => (
-        <div className="cursor-pointer" onClick={()=>{
+        <div className="cursor-pointer mt-3 border" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
-                toast.success(" SeedPhrases Copied Sucessfully")
+                toast.success(" Public Key Copied Sucessfully")
                 
               });
-        }}> <span>{currentIndex} -- </span> {p.toBase58()}</div>
+        }}> <span className="m-1 p-1">Public Key {currentIndex}--- </span> {p.toBase58()}</div>
       ))}
       {privateKey.map((p) => (
-        <div className="cursor-pointer" onClick={()=>{
+        <div className="cursor-pointer mt-3 border " onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
-                toast.success(" SeedPhrases Copied Sucessfully")
+                toast.success(" Private Key Copied Sucessfully")
                 
               });
-        }}> <span>{currentIndex} --- </span> {p}</div>
+        }}> <span className="m-1 p-1"> Private Key {currentIndex}--- </span> {p}</div>
+
+        
       ))}
+      
+     </div>
+     </div>
     </div>
   );
 }

@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { mnemonicToSeed } from "bip39";
 import { Wallet, HDNodeWallet } from "ethers";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const EthWallet = ({mnemonic}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [addresses, setAddresses] = useState([]);
     const [privateKeys, setPrivateKeys] = useState([]);
-
+    const [copied, setCopied] = useState(false);
     return (
-        <div className="button">
-            <a onClick={async function() {
+        <div className="w-full">
+           <div className="flex justify-center">
+           <div className="">
+           <Toaster/>
+           <div className="  mt-3">
+           <a onClick={async function() {
                 const seed = await mnemonicToSeed(mnemonic);
                 const derivationPath = `m/44'/60'/${currentIndex}'/0'`;
                  const hdNode = HDNodeWallet.fromSeed(seed);
@@ -30,35 +35,40 @@ export const EthWallet = ({mnemonic}) => {
 Create Eth wallet
 </span>
 </a>
+
             
 
-            {addresses.map(p => <div onClick={()=>{
+            {addresses.map(p => <div className="cursor-pointer mt-3 border" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
-                toast.success(" SeedPhrases Copied Sucessfully")
+                toast.success(" Public Key Copied Sucessfully")
                 
               });
         }}>
-                <span> {currentIndex}--- </span> {p}
+                <span className="m-1 p-1">Public Key {currentIndex}--- </span> {p}
                 <br/>
                 
             </div>)}
             {
                     privateKeys.map(key =>
-                        <div onClick={()=>{
+                        <div className="cursor-pointer mt-3 border" onClick={()=>{
                             navigator.clipboard.writeText(key).then(() => {
                                 setCopied(true);
                                 
-                                toast.success(" SeedPhrases Copied Sucessfully")
+                                toast.success(" Private Key Copied Sucessfully")
                                 
                               });
                         }}>
-                          <span> {currentIndex}---   </span>  {key}
+                          <span className="m-1 p-1">Private Key {currentIndex}---   </span>  {key}
                         </div>
                     )
             }
+            <p className="pt-4">Now enjoy your wallet || Code by Manish Sahu</p>
+           </div>
            
+           </div>
+           </div>
         </div>
     )
 }

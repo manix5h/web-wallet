@@ -26,7 +26,7 @@ function App() {
     <>
     <Toaster/>
 
-    <h1 className="text-center font-semibold text-zinc-700 text-3xl">Create Your Web Wallet</h1>
+    <h1 className="text-center font-semibold text-zinc-700 text-3xl mt-2 mb-3">Create Your Web Wallet</h1>
       {showInput && (
         <div className="relative m-2 border ">
           <input
