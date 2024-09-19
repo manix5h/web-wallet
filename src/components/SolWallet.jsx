@@ -21,10 +21,11 @@ export function SolanaWallet({ mnemonic }) {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full border rounded-lg mt-3 pb-4">
      <div className="flex justify-center">
      <div className="">
      <Toaster/>
+      <div className="flex justify-center">
       <a
         onClick={async function () {
           const seed = await mnemonicToSeed(mnemonic);
@@ -64,6 +65,7 @@ export function SolanaWallet({ mnemonic }) {
         </span>
       </a>
 
+      </div>
       {publicKeys.map((p) => (
         <div className="cursor-pointer mt-3 border" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
@@ -75,7 +77,7 @@ export function SolanaWallet({ mnemonic }) {
         }}> <span className="m-1 p-1">Public Key {currentIndex}--- </span> {p.toBase58()}</div>
       ))}
       {privateKey.map((p) => (
-        <div className="cursor-pointer mt-3 border " onClick={()=>{
+        <div className="cursor-pointer mt-3 mb-3 border " onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 

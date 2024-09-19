@@ -2,19 +2,21 @@ import { useState } from "react";
 import { mnemonicToSeed } from "bip39";
 import { Wallet, HDNodeWallet } from "ethers";
 import toast, { Toaster } from 'react-hot-toast';
-
+import { FaCode } from "react-icons/fa6";
 export const EthWallet = ({mnemonic}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [addresses, setAddresses] = useState([]);
     const [privateKeys, setPrivateKeys] = useState([]);
     const [copied, setCopied] = useState(false);
     return (
-        <div className="w-full">
+        <div>
+            <div className="w-full border rounded-lg pt-1 mt-5 pb-4">
            <div className="flex justify-center">
            <div className="">
            <Toaster/>
            <div className="  mt-3">
-           <a onClick={async function() {
+          <div className="flex justify-center">
+          <a onClick={async function() {
                 const seed = await mnemonicToSeed(mnemonic);
                 const derivationPath = `m/44'/60'/${currentIndex}'/0'`;
                  const hdNode = HDNodeWallet.fromSeed(seed);
@@ -35,6 +37,7 @@ export const EthWallet = ({mnemonic}) => {
 Create Eth wallet
 </span>
 </a>
+          </div>
 
             
 
@@ -52,7 +55,7 @@ Create Eth wallet
             </div>)}
             {
                     privateKeys.map(key =>
-                        <div className="cursor-pointer mt-3 border" onClick={()=>{
+                        <div className="cursor-pointer mt-3 border " onClick={()=>{
                             navigator.clipboard.writeText(key).then(() => {
                                 setCopied(true);
                                 
@@ -64,11 +67,21 @@ Create Eth wallet
                         </div>
                     )
             }
-            <p className="pt-4">Now enjoy your wallet || Code by Manish Sahu</p>
+            
            </div>
            
            </div>
            </div>
+           
+        </div>
+
+        <a href="https://manix5h.netlify.app">
+        <div className="flex justify-center mt-2 cursor-pointer">
+       <div className="pr-2 mt-1"> <FaCode/> </div>by Manish Sahu
+      
+        </div>
+        </a>
+        
         </div>
     )
 }
