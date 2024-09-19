@@ -41,7 +41,7 @@ Create Eth wallet
 
             
 
-            {addresses.map(p => <div className="cursor-pointer mt-3 border" onClick={()=>{
+            {addresses.map(p => <div className="cursor-pointer mt-3 text-white" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
@@ -55,7 +55,7 @@ Create Eth wallet
             </div>)}
             {
                     privateKeys.map(key =>
-                        <div className="cursor-pointer mt-3 border " onClick={()=>{
+                        <div className="cursor-pointer mt-3 text-white " onClick={()=>{
                             navigator.clipboard.writeText(key).then(() => {
                                 setCopied(true);
                                 
@@ -76,7 +76,7 @@ Create Eth wallet
         </div>
 
         <a href="https://manix5h.netlify.app">
-        <div className="flex justify-center mt-2 cursor-pointer">
+        <div className="flex justify-center mt-2 cursor-pointer text-white">
        <div className="pr-2 mt-1"> <FaCode/> </div>by Manish Sahu
       
         </div>

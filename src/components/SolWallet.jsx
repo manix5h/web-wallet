@@ -12,12 +12,7 @@ export function SolanaWallet({ mnemonic }) {
   const [privateKey, setPrivateKey] = useState([]);
 
   const [copied, setCopied] = useState(false);
-
-
-
-  
   const handleCopy = (word) => {
-   
   };
 
   return (
@@ -67,26 +62,24 @@ export function SolanaWallet({ mnemonic }) {
 
       </div>
       {publicKeys.map((p) => (
-        <div className="cursor-pointer mt-3 border" onClick={()=>{
+        <div className="cursor-pointer mt-3  text-white" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
                 toast.success(" Public Key Copied Sucessfully")
                 
               });
-        }}> <span className="m-1 p-1">Public Key {currentIndex}--- </span> {p.toBase58()}</div>
+        }}> <span className="m-1 p-1 text-white">Public Key {currentIndex}--- </span> {p.toBase58()}</div>
       ))}
       {privateKey.map((p) => (
-        <div className="cursor-pointer mt-3 mb-3 border " onClick={()=>{
+        <div className="cursor-pointer mt-3 mb-3   text-white" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
                 toast.success(" Private Key Copied Sucessfully")
                 
               });
-        }}> <span className="m-1 p-1"> Private Key {currentIndex}--- </span> {p}</div>
-
-        
+        }}> <span className="m-1 p-1"> Private Key {currentIndex}--- </span> {p}</div>  
       ))}
       
      </div>

@@ -31,8 +31,8 @@ function SeedPhrases() {
         <div>
         <Toaster/>
 
-<h1 className="text-center font-semibold text-zinc-700 text-3xl mt-2 ">Create Your Web Wallet</h1>
-<p className="text-center text-zinc-700 mt-4 text-xl">Seed Phrases</p>
+<h1 className="text-center font-semibold text-zinc-200 text-3xl mt-2 ">Create Your Web Wallet</h1>
+<p className="text-center text-zinc-200 mt-4 text-xl">Seed Phrases</p>
 
   {showInput && (
    <div className="flex justify-center ">
@@ -48,7 +48,7 @@ function SeedPhrases() {
       />
       <label
         for="floating_outlined"
-        className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+        className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-zinc-900  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
       >
        Enter Seed prases if you have otherwise create new seed SeedPhrases
       </label>
