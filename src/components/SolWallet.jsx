@@ -16,8 +16,8 @@ export function SolanaWallet({ mnemonic }) {
   };
 
   return (
-    <div className="w-full border rounded-lg mt-3 pb-4">
-     <div className="flex justify-center">
+    <div className="w-full  rounded-lg mt-3 pb-4">
+     <div className="flex  justify-center">
      <div className="">
      <Toaster/>
       <div className="flex justify-center">
@@ -31,7 +31,7 @@ export function SolanaWallet({ mnemonic }) {
           const privatekey = bs58.encode(secret);
 
           setCurrentIndex(currentIndex + 1);
-          setPublicKeys([ keypair.publicKey]);
+          setPublicKeys([ keypair.publicKey.toBase58()]);
           setPrivateKey([ privatekey]);
           
          
@@ -61,29 +61,81 @@ export function SolanaWallet({ mnemonic }) {
       </a>
 
       </div>
-      {publicKeys.map((p) => (
-        <div className="cursor-pointer mt-3  text-white" onClick={()=>{
+
+      
+    
+      
+     </div>
+     </div>
+     <div className="w-full   items-center justify-center  pt-5" >
+        <div className="flex justify-center">
+        <div className="bg-white shadow-md rounded-lg p-6 w-full md:w-8/12 justify-center">
+        
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Public Key</label>
+        
+           {publicKeys.map((p) => (
+        <div className="cursor-pointer mt-1 block w-full  border-gray-300 rounded-md p-2" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
                 toast.success(" Public Key Copied Sucessfully")
                 
               });
-        }}> <span className="m-1 p-1 text-white">Public Key {currentIndex}--- </span> {p.toBase58()}</div>
+        }}> <input
+            
+        className="mt-1 block w-full border  border-gray-300 rounded-md p-2"
+        value={p}
+      /> </div>
       ))}
-      {privateKey.map((p) => (
-        <div className="cursor-pointer mt-3 mb-3   text-white" onClick={()=>{
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Private Key</label>
+
+          {privateKey.map((p) => (
+        <div className="cursor-pointer mt-1 block w-full  border-gray-300 rounded-md p-2" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
                 toast.success(" Private Key Copied Sucessfully")
                 
               });
-        }}> <span className="m-1 p-1"> Private Key {currentIndex}--- </span> {p}</div>  
+        }}>  <input
+            
+        className="mt-1 block w-full border  border-gray-300 rounded-md p-2"
+        value={p}
+      /> </div>  
       ))}
-      
-     </div>
-     </div>
+         
+        </div>
+
+        </div>
+        </div>
+      </div>
+     {/* <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white shadow-md rounded-lg p-6 w-80">
+        <h2 className="text-xl font-bold mb-4">Key Storage</h2>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Public Key</label>
+          <input
+            type="text"
+            
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Private Key</label>
+          <input
+            
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+          />
+        </div>
+        <button className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">
+          Save Keys
+        </button>
+      </div>
+    </div> */}
     </div>
   );
 }

@@ -23,7 +23,7 @@ const SeedPhrasesDisplay = ({ mnemonic }) => {
       
       <div>
         
-      <div className=' border p-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-center  items-center mx-auto my-8 rounded-md w-8/12' >
+      <div className=' border p-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-center  items-center mx-auto my-8 rounded-md   w-full md:w-8/12' >
       {mnemonic.split(' ').map((word, index) => (
         <div
           key={index}

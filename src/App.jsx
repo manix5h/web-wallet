@@ -1,6 +1,7 @@
+import { GlobeDemo } from "./components/GlobdDemo";
 import SeedPhrases from "./components/SeedPhrases";
 import { BackgroundBeamsWithCollision } from "./components/ui/background-beams-with-collision";
-import { VortexDemo } from "./components/VortexDemo";
+
 
 
 function App() {
@@ -14,10 +15,11 @@ function App() {
 
 
 
-    <BackgroundBeamsWithCollision>
+ 
     <SeedPhrases/>
-
-    </BackgroundBeamsWithCollision>
+    <GlobeDemo/>
+    
+    
     </>
   );
 }

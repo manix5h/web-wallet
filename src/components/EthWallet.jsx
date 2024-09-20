@@ -10,7 +10,7 @@ export const EthWallet = ({mnemonic}) => {
     const [copied, setCopied] = useState(false);
     return (
         <div>
-            <div className="w-full border rounded-lg pt-1 mt-5 pb-4">
+            <div className="w-full  rounded-lg pt-1 mt-5 pb-4">
            <div className="flex justify-center">
            <div className="">
            <Toaster/>
@@ -40,43 +40,64 @@ Create Eth wallet
           </div>
 
             
-
-            {addresses.map(p => <div className="cursor-pointer mt-3 text-white" onClick={()=>{
+         
+          
+            
+           </div>
+           
+           </div>
+           </div>
+           <div className="w-full   items-center justify-center pt-5" >
+        <div className="flex justify-center">
+        <div className="bg-white shadow-md rounded-lg p-6 w-full md:w-8/12 justify-center">
+        
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Public Key</label>
+        
+           {addresses.map((p) => (
+        <div className="cursor-pointer mt-1 block w-full  border-gray-300 rounded-md p-2" onClick={()=>{
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
                 toast.success(" Public Key Copied Sucessfully")
                 
               });
-        }}>
-                <span className="m-1 p-1">Public Key {currentIndex}--- </span> {p}
-                <br/>
-                
-            </div>)}
-            {
-                    privateKeys.map(key =>
-                        <div className="cursor-pointer mt-3 text-white " onClick={()=>{
-                            navigator.clipboard.writeText(key).then(() => {
-                                setCopied(true);
-                                
-                                toast.success(" Private Key Copied Sucessfully")
-                                
-                              });
-                        }}>
-                          <span className="m-1 p-1">Private Key {currentIndex}---   </span>  {key}
-                        </div>
-                    )
-            }
+        }}> <input
             
-           </div>
-           
-           </div>
-           </div>
+        className="mt-1 block w-full border  border-gray-300 rounded-md p-2"
+        value={p}
+      /> </div>
+      ))}
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Private Key</label>
+
+          {privateKeys.map((p) => (
+        <div className="cursor-pointer mt-1 block w-full  border-gray-300 rounded-md p-2" onClick={()=>{
+            navigator.clipboard.writeText(p).then(() => {
+                setCopied(true);
+                
+                toast.success(" Private Key Copied Sucessfully")
+                
+              });
+        }}>  <input
+            
+        className="mt-1 block w-full border  border-gray-300 rounded-md p-2"
+        value={p}
+      /> </div>  
+      ))}
+         
+        </div>
+
+        </div>
+        </div>
+      </div>
            
         </div>
 
         <a href="https://manix5h.netlify.app">
-        <div className="flex justify-center mt-2 cursor-pointer text-white">
+        <div className="flex justify-center mt-8 cursor-pointer text-white">
        <div className="pr-2 mt-1"> <FaCode/> </div>by Manish Sahu
       
         </div>

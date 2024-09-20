@@ -25,7 +25,7 @@ function SeedPhrases() {
 
   return (
     <>
-   <div className="w-full h-screen">
+   <div className="w-full h-fit bg-zinc-900">
    <div className="flex justify-center">
    <div className="w-8/12 ">
         <div>
@@ -36,7 +36,7 @@ function SeedPhrases() {
 
   {showInput && (
    <div className="flex justify-center ">
-     <div className="relative m-2 border w-8/12  ">
+     <div className="relative m-2 border w-full md:w-8/12  ">
      
       <input
         type="text"
@@ -48,7 +48,7 @@ function SeedPhrases() {
       />
       <label
         for="floating_outlined"
-        className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-zinc-900  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+        className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
       >
        Enter Seed prases if you have otherwise create new seed SeedPhrases
       </label>
@@ -70,7 +70,7 @@ function SeedPhrases() {
         toast.success("generated")
       }}
       href="#_"
-      class="relative p-2 inline-flex items-center w-3/12 justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-500 rounded-xl group"
+      class="relative p-2 inline-flex items-center w-9/12 md:w-3/12 justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-500 rounded-xl group"
     >
       <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
         <span class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
