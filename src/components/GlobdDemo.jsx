@@ -28,7 +28,7 @@ export function GlobeDemo() {
     maxRings: 3,
     initialPosition: { lat: 22.3193, lng: 114.1694 },
     autoRotate: true,
-    autoRotateSpeed: 0.5,
+    autoRotateSpeed: 0.9,
   };
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
   const sampleArcs = [
@@ -396,7 +396,7 @@ export function GlobeDemo() {
 
   return (
     (<div
-      className="flex flex-row  justify-center    relative w-full bg-zinc-900">
+      className="flex flex-row  justify-center    relative w-full dark:bg-slate-950">
       <div
         className="max-w-7xl  w-full relative overflow-hidden  md:mt-0  h-[18rem] ">
         <motion.div

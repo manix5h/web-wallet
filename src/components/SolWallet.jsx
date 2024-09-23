@@ -79,12 +79,12 @@ export function SolanaWallet({ mnemonic }) {
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
-                toast.success(" Public Key Copied Sucessfully")
+                toast.success(" Public Key Copied ")
                 
               });
         }}> <input
             
-        className="mt-1 block w-full border  border-gray-300 rounded-md p-2"
+        className="mt-1 block w-full border cursor-pointer border-gray-300 rounded-md p-2"
         value={p}
       /> </div>
       ))}
@@ -98,12 +98,12 @@ export function SolanaWallet({ mnemonic }) {
             navigator.clipboard.writeText(p).then(() => {
                 setCopied(true);
                 
-                toast.success(" Private Key Copied Sucessfully")
+                toast.success(" Private Key Copied ")
                 
               });
         }}>  <input
             
-        className="mt-1 block w-full border  border-gray-300 rounded-md p-2"
+        className="mt-1 block w-full border  cursor-pointer border-gray-300 rounded-md p-2"
         value={p}
       /> </div>  
       ))}

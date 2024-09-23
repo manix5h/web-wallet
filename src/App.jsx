@@ -1,6 +1,8 @@
 import { GlobeDemo } from "./components/GlobdDemo";
+import { Navbar } from "./components/Navbar";
 import SeedPhrases from "./components/SeedPhrases";
-import { BackgroundBeamsWithCollision } from "./components/ui/background-beams-with-collision";
+import Thememode from "./components/ThemeMode";
+
 
 
 
@@ -8,19 +10,19 @@ function App() {
 
 
   return (
-    <>
+    < div className="">
     
 
    
 
-
-
+    <Navbar/>
+    
  
     <SeedPhrases/>
     <GlobeDemo/>
     
     
-    </>
+    </div>
   );
 }
 

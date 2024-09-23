@@ -25,14 +25,14 @@ function SeedPhrases() {
 
   return (
     <>
-   <div className="w-full h-fit bg-zinc-900">
+   <div className="w-full h-fit dark:bg-slate-950">
    <div className="flex justify-center">
    <div className="w-8/12 ">
         <div>
         <Toaster/>
 
-<h1 className="text-center font-semibold text-zinc-200 text-3xl mt-2 ">Create Your Web Wallet</h1>
-<p className="text-center text-zinc-200 mt-4 text-xl">Seed Phrases</p>
+<h1 className="text-center font-semibold text-black dark:text-white text-3xl mt-2 ">Create Your Web Wallet</h1>
+<p className="text-center text-black dark:text-white mt-4 text-xl">Seed Phrases</p>
 
   {showInput && (
    <div className="flex justify-center ">
