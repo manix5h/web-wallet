@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { mnemonicToSeed } from "bip39";
 import { Wallet, HDNodeWallet } from "ethers";
 import toast, { Toaster } from 'react-hot-toast';
@@ -8,6 +8,30 @@ export const EthWallet = ({ mnemonic }) => {
   const [addresses, setAddresses] = useState([]);
   const [privateKeys, setPrivateKeys] = useState([]);
   const [copied, setCopied] = useState(false);
+
+  useEffect( ()=>{
+
+    async function fetchData(){
+      const seed = await mnemonicToSeed(mnemonic);
+    console.log(mnemonic)
+    const derivationPath = `m/44'/60'/${currentIndex}'/0'`;
+    const hdNode = HDNodeWallet.fromSeed(seed);
+    const child = hdNode.derivePath(derivationPath);
+    const privateKey = child.privateKey;
+    const wallet = new Wallet(privateKey);
+
+
+
+    setCurrentIndex(currentIndex + 1);
+    setAddresses([wallet.address]);
+    setPrivateKeys([privateKey])
+    }
+
+    fetchData();
+
+  },[])
+
+
   return (
     <div>
       <div className="w-full  rounded-lg pt-1 mt-5 pb-4">
