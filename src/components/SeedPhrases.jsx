@@ -27,7 +27,7 @@ function SeedPhrases() {
     <>
    <div className="w-full h-fit dark:bg-slate-950">
    <div className="flex justify-center">
-   <div className="w-8/12 ">
+   <div className=" w-10/12 lg:w-8/12 ">
         <div>
         <Toaster/>
 

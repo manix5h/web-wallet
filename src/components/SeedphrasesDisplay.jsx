@@ -34,7 +34,7 @@ const SeedPhrasesDisplay = ({ mnemonic }) => {
         </div>
       ))}
       {copied &&   <Toaster  />}
-      <span className='cursor-pointer mt-4 p-2 text-white'>Click Anywhere To Copy</span>
+      <span className='cursor-pointer dark:text-white text-black mt-4 p-2 '>Click Anywhere To Copy</span>
       
     
     </div>
