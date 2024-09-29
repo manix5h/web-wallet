@@ -57,37 +57,57 @@ const SolanaLatestTransaction = () => {
 
   return (
    <div className='w-full flex justify-center bg-white dark:bg-slate-950 pt-4'>
-     <div className='w-8/12 md:w-6/12 border text-black dark:text-white rounded-md' style={{ padding: '20px' }}>
-      <h2 >Solana Account Info Fetcher</h2>
+     <div className='w-11/12 md:w-6/12  text-black dark:text-white  rounded-md' style={{ padding: '20px' }}>
+      <h2 className='text-center text-2xl font-semibold text-zinc-600 dark:text-zinc-200'>Solana Wallet Info</h2>
+
+      <div className='cursor-pointer mt-1 block w-full  border-gray-300 rounded-md p-2'>
       <input
         type="text"
         placeholder="Enter Solana Public Key"
         value={publicKey}
         onChange={(e) => setPublicKey(e.target.value)}
-        style={{ width: '400px', padding: '8px' }}
-        className='dark:bg-slate-950 block peer'
+       
+        className='dark:bg-slate-950 mt-1 block  border dark:border-slate-700 cursor-pointer  border-gray-300 rounded-md p-2 w-full'
       />
-      <button onClick={fetchAccountInfo} style={{ marginLeft: '10px', padding: '8px 16px' }}>
-        Fetch Account Info
-      </button>
+      </div>
+      
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+   <div className='flex justify-center mt-4'>
+   <div class="relative inline-flex  group pt-3 ">
+        <div
+            class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+        </div>
+        <a href="#" title="Get quote now" onClick={fetchAccountInfo} style={{ marginLeft: '10px', padding: '8px 16px' }}
+            class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+            role="button">Get it now
+        </a>
+    </div>
+   </div>
+  
 
-      {balance !== null && (
+    <div className='pt-4'>
+    {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+
+    <div className='pt-3'>
+    {balance !== null && (
         <div>
           <h3>Account Balance:</h3>
-          <p><strong>Total Balance:</strong> {balance} SOL</p>
+          <p className='pt-3'><strong>Total Balance:</strong> {balance} SOL</p>
         </div>
       )}
+    </div>
 
-      {transaction && (
-        <div>
+     <div className='pt-3'>
+     {transaction && (
+        <div className=''>
           <h3>Latest Transaction Info:</h3>
           <p><strong>Signature:</strong> {transaction.signature}</p>
           <p><strong>Amount Transferred:</strong> {transaction.amount} SOL</p>
           <p><strong>Date:</strong> {transaction.date}</p>
         </div>
       )}
+     </div>
     </div>
    </div>
   );

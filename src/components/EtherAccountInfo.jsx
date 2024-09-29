@@ -50,33 +50,48 @@ const EthereumAccountInfo = () => {
 
   return (
 <div className='w-full flex justify-center bg-white dark:bg-slate-950 pt-4'>
-<div className='w-8/12 md:w-6/12  border text-black dark:text-white rounded-md' style={{ padding: '20px' }}>
-      <h2>Ethereum Account Info Fetcherert</h2>
-      <input
+<div className='w-11/12 md:w-6/12 text-black dark:text-white rounded-md' style={{ padding: '20px' }}>
+      <h2 className=' text-center text-2xl font-semibold text-zinc-600 dark:text-zinc-200'>Ethereum Wallet Info</h2>
+     <div className='cursor-pointer mt-1 block w-full  border-gray-300 rounded-md p-2'>
+     <input
         type="text"
         placeholder="Enter Ethereum Public Key"
         value={publicKey}
         onChange={(e) => setPublicKey(e.target.value)}
-        style={{ width: '400px', padding: '8px' }}
-        className='dark:bg-slate-950 '
+        
+        className='dark:bg-slate-950 mt-1 block  border dark:border-slate-700 cursor-pointer  border-gray-300 rounded-md p-2 w-full'
       />
-      <button className='' onClick={fetchAccountInfo} style={{ marginLeft: '10px', padding: '8px 16px' }}>
-        Fetch Account Info
-      </button>
+     </div>
+    
+
+      <div className='flex justify-center pt-4'>
+      <div class="relative inline-flex  group pt-3">
+        <div
+            class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+        </div>
+        <a href="#" title="Get quote now" onClick={fetchAccountInfo} style={{ marginLeft: '10px', padding: '8px 16px' }}
+            class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+            role="button">Get it now
+        </a>
+    </div>
+      </div>
 
       {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
 
+      <div className='pt-4'>
       {balance !== null && (
         <div>
           
           <p><strong>Total Balance:</strong> {balance} ETH</p>
         </div>
       )}
-      <div>
-      <h1>Latest Transaction</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
+      <div className='pt-3'>
+      
+      <div className='pt-3'>{error && <p style={{ color: 'red' }}>{error}</p>}</div>
       {transaction && (
         <div>
+          <h1>Latest Transaction</h1>
           <p>Transaction Hash: {transaction.hash}</p>
           <p>Block Number: {transaction.blockNumber}</p>
           <p>From: {transaction.from}</p>

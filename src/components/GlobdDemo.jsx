@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-
+import { FaCode } from "react-icons/fa6";
 const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
   ssr: false,
 });
@@ -395,7 +395,8 @@ export function GlobeDemo() {
   ];
 
   return (
-    (<div
+    (<div>
+      <div
       className="flex flex-row  justify-center    relative w-full dark:bg-slate-950">
       <div
         className="max-w-7xl  w-full relative overflow-hidden  md:mt-0  h-[18rem] ">
@@ -420,10 +421,20 @@ export function GlobeDemo() {
         <div className="absolute w-full  h-full z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
+        
       </div>
+     
+    </div>
+
+<div className="bg-white dark:bg-slate-950">
+<a href="https://manix5h.netlify.app">
+<div className="flex justify-center pb-8 pt-3 cursor-pointer text-black dark:text-zinc-100">
+  <div className="pr-2 mt-1"> <FaCode /> </div>by Manish Sahu
+
+</div>
+</a>
+</div>
     </div>)
   );
 }
 
-
-  

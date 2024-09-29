@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { mnemonicToSeed } from "bip39";
 import { Wallet, HDNodeWallet } from "ethers";
 import toast, { Toaster } from 'react-hot-toast';
-import { FaCode } from "react-icons/fa6";
+
 export const EthWallet = ({ mnemonic }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [addresses, setAddresses] = useState([]);
-  const [privateKeys, setPrivateKeys] = useState([]);
-  const [copied, setCopied] = useState(false);
+const [currentIndex, setCurrentIndex] = useState(0);
+const [addresses, setAddresses] = useState([]);
+const [privateKeys, setPrivateKeys] = useState([]);
+const [copied, setCopied] = useState(false);
 
   useEffect( ()=>{
 
@@ -120,12 +120,7 @@ export const EthWallet = ({ mnemonic }) => {
 
       </div>
 
-      <a href="https://manix5h.netlify.app">
-        <div className="flex justify-center mt-8 cursor-pointer text-black dark:text-zinc-100">
-          <div className="pr-2 mt-1"> <FaCode /> </div>by Manish Sahu
-
-        </div>
-      </a>
+      
 
     </div>
   )
