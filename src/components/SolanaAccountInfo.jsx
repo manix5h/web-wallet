@@ -11,7 +11,7 @@ const SolanaLatestTransaction = () => {
   const connection = new Connection('https://solana-mainnet.g.alchemy.com/v2/UynFWZ4RJPJFEQYAqDjnQDH4uKM-ZRmK');
 
   // Fetch latest transaction for the given public key and total balance
-  const fetchAccountInfo = async () => {
+  const fetchAccountInfo = async (e) => {
     try {
       setError(''); // Clear any previous errors
       const pubKey = new PublicKey(publicKey);
@@ -44,6 +44,7 @@ const SolanaLatestTransaction = () => {
           amount: amountSOL,
           date: new Date(transactionDetails.blockTime * 1000).toLocaleString(),
         });
+        e.preventDefault()
       } else {
         setError('Failed to fetch transaction details.');
         setTransaction(null);
@@ -77,10 +78,10 @@ const SolanaLatestTransaction = () => {
         <div
             class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
         </div>
-        <a href="#" title="Get quote now" onClick={fetchAccountInfo} style={{ marginLeft: '10px', padding: '8px 16px' }}
+        <button href="#" title="Get quote now" onClick={fetchAccountInfo} style={{ marginLeft: '10px', padding: '8px 16px' }}
             class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
             role="button">Get it now
-        </a>
+        </button>
     </div>
    </div>
   
@@ -102,7 +103,7 @@ const SolanaLatestTransaction = () => {
      {transaction && (
         <div className=''>
           <h3>Latest Transaction Info:</h3>
-          <p><strong>Signature:</strong> {transaction.signature}</p>
+          <p className='text-sm'><strong>Signature:</strong> {transaction.signature}</p>
           <p><strong>Amount Transferred:</strong> {transaction.amount} SOL</p>
           <p><strong>Date:</strong> {transaction.date}</p>
         </div>
