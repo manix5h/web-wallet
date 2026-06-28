@@ -427,7 +427,7 @@ export function GlobeDemo() {
     </div>
 
 <div className="bg-white dark:bg-slate-950">
-<a href="https://manix5h.netlify.app">
+<a href="https://manix5h.vercel.app">
 <div className="flex justify-center pb-8 pt-3 cursor-pointer text-black dark:text-zinc-100">
   <div className="pr-2 mt-1"> <FaCode /> </div>by Manish Sahu
 
